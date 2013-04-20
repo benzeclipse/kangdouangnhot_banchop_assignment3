@@ -26,11 +26,11 @@ else {
 	console.log("Checking");
 }
 return cell;
-
 };
 
 var getReadings = function(m){
-// returning bad cell reading
+    var mv = "All cells check good";
+    console.log( mv );
     return mV;
 };
 
@@ -69,13 +69,22 @@ else { console.log(cells[2] , "Please call" , callTech + feed ) }
 
 };
 
-var readRead = function () {
-	
+
+// Nested Loop
+var readRead = function () {	
+    var newRead = [ "4.6", "4.7", "4.8", "4.9"];
 	for( i = 0; i < cellsRead.length; i++);
 	console.log("Cells readings are " + cellsRead);
+	// local variable
+	for ( x = 0; x < newRead.length; x++ ) {
+		console.log ( "New readings are " + newRead);
+	}
+		return newRead;	
 };
 
-
+var newReadings = function ( ) {
+	console.log( "New Readings are as follow..." , newRead);
+};
 
 // calling the cellCondition and checkCells function
 
@@ -83,8 +92,12 @@ var feedBack = getFeedBack();
 
 getCheckCells( "Checking cells ", " please wait...", feedBack );
 
-var mV = getReadings ( );
 
 cellCondition( " 3 good cells", "cell that is reading " , mV );
 
-readRead();
+readRead(  );
+
+var mV = getReadings ( );
+
+
+

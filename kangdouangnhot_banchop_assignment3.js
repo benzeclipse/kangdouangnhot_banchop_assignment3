@@ -4,7 +4,7 @@
 // Project 3
 
 // variables
-var check = true;
+var checking = true;
 var callTech = "1-800-555-5555";
 var check =  0,
     cell3 = 15,
@@ -14,13 +14,12 @@ var check =  0,
     cell = true,
     mV = 5 + 10.5,
     cellsRead = ["4.7", " 4.8", " 15.5", " 4.9"]; 
-    
-    
+       
 // Cell output conditions
-var cellCondition = function ( good, bad, mV ) {
-	
+var cellCondition = function ( good, bad, mV , checking ) {
+// boolean argument added
 if( cell === true ){
-	console.log("You have" + good + ", you have a " + bad  + mV + " milliVolts\n" );
+	console.log("You have" + good + ", you have a " + bad  + mV + " milliVolts is " + checking );
 }
 else {
 	console.log("Checking");
@@ -40,9 +39,7 @@ var getFeedBack = function( ){
 	if ( check === true){
 	console.log("Checking.. please wait...");
 	}
-	
-	else{
-	
+	else{	
 	console.log("Hello");
 	}
     return feed;
@@ -69,7 +66,7 @@ else { console.log(cells[2] , "Please call" , callTech , feed ) }
 var readRead = function () {	
     var newRead = [ "4.6 mv", "4.7 mv", "4.8 mv", "4.9 mv"],
     cellNum = [1, 2, 3, 4];
-    var cn = [];
+   
 	for( i = 0; i < cellsRead.length; i++);
 	console.log("\nCells readings are " + cellsRead);
 	// local variable
@@ -90,7 +87,7 @@ var feedBack = getFeedBack();
 getCheckCells( "Checking cells ", " please wait...", feedBack );
 
 
-cellCondition( " 3 good cells", "cell that is reading " , mV );
+cellCondition( " 3 good cells", "cell that is reading " , mV , checking );
 
 readRead(  );
 

@@ -3,7 +3,7 @@
 // SDI 1304
 // Project 3
 
-// variables
+// global variables
 var checking = true;
 var callTech = "1-800-555-5555";
 var check =  0,
@@ -14,6 +14,17 @@ var check =  0,
     cell = true,
     mV = 5 + 10.5,
     cellsRead = ["4.7", " 4.8", " 15.5", " 4.9"]; 
+ 
+ // properties objects  
+var indicator = { readout : true, deadload : 3.0, OL : "Overload!",
+				 loadCels : ["1", "2", "3", "4"]
+};
+
+// method procedure
+getIndicator = function () {
+console.log("Scale Indicator checks okay, status " , indicator.readout);
+} 
+
        
 // Cell output conditions
 var cellCondition = function ( good, bad, mV , checking ) {
@@ -81,6 +92,8 @@ var newReadings = function ( f ) {
 };
 
 // calling the cellCondition and checkCells function
+
+getIndicator();
 
 var feedBack = getFeedBack();
 

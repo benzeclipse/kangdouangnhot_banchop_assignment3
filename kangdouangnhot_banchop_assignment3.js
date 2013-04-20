@@ -61,26 +61,26 @@ if ( cell1 < 8 && cell2 < 8 && cell3 < 8 && cell4 < 8 ) {
 	console.log("Cells 1, 2, 3, and 4 are good...");
 	 }
 // if a single cells checks false, this block of code would then run and output a bad cell #	
-else { console.log(cells[2] , "Please call" , callTech + feed ) }
-
+else { console.log(cells[2] , "Please call" , callTech , feed ) }
+       
 };
 
-// Nested Loop
+// Nested Loop and changing new cell condition and readings
 var readRead = function () {	
     var newRead = [ "4.6 mv", "4.7 mv", "4.8 mv", "4.9 mv"],
-    cellNum = ["1", "2", "3", "4"];
-    
+    cellNum = [1, 2, 3, 4];
+    var cn = [];
 	for( i = 0; i < cellsRead.length; i++);
 	console.log("\nCells readings are " + cellsRead);
 	// local variable
-	for ( x = 0; x < newRead.length; x++ ) {
-		console.log ( "New readings are " + newRead + " for cell " + cellNum );
+	for ( x = 0; x < i; x++ ) {
+		console.log ( "New readings are " + newRead[x] + " for cell " + cellNum[x] );
 	}
 		return newRead;	
 };
 
-var newReadings = function ( ) {
-	console.log( "New Readings are as follow..." , newRead);
+var newReadings = function ( f ) {
+	console.log( "New Readings are as follow..." , f );
 };
 
 // calling the cellCondition and checkCells function
@@ -93,6 +93,8 @@ getCheckCells( "Checking cells ", " please wait...", feedBack );
 cellCondition( " 3 good cells", "cell that is reading " , mV );
 
 readRead(  );
+
+newReadings( "testing..." );
 
 var mV = getReadings ( );
 

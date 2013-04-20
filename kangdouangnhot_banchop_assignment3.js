@@ -20,7 +20,7 @@ var check =  0,
 var cellCondition = function ( good, bad, mV ) {
 	
 if( cell === true ){
-	console.log("You have" + good + ", you have a " + bad  + mV + " milliVolts");
+	console.log("You have" + good + ", you have a " + bad  + mV + " milliVolts\n" );
 }
 else {
 	console.log("Checking");
@@ -48,7 +48,6 @@ var getFeedBack = function( ){
     return feed;
 };
 
-
 // checking number of cells conditions
 var getCheckCells = function ( checkCell , message, feed ) {
 
@@ -57,27 +56,25 @@ while ( check <  4 ) {
 	console.log( checkCell + check + message );
 	var cells = [ " Cell 1 good ", " Cell 2 good ", "Cell 3 bad! ", " Cell 4 good " ];
 };
-
-
 //  checking when cells under 8 (milliVolts reading) anything over would be bad
 if ( cell1 < 8 && cell2 < 8 && cell3 < 8 && cell4 < 8 ) { 
 	console.log("Cells 1, 2, 3, and 4 are good...");
 	 }
-
 // if a single cells checks false, this block of code would then run and output a bad cell #	
 else { console.log(cells[2] , "Please call" , callTech + feed ) }
 
 };
 
-
 // Nested Loop
 var readRead = function () {	
-    var newRead = [ "4.6", "4.7", "4.8", "4.9"];
+    var newRead = [ "4.6 mv", "4.7 mv", "4.8 mv", "4.9 mv"],
+    cellNum = ["1", "2", "3", "4"];
+    
 	for( i = 0; i < cellsRead.length; i++);
-	console.log("Cells readings are " + cellsRead);
+	console.log("\nCells readings are " + cellsRead);
 	// local variable
 	for ( x = 0; x < newRead.length; x++ ) {
-		console.log ( "New readings are " + newRead);
+		console.log ( "New readings are " + newRead + " for cell " + cellNum );
 	}
 		return newRead;	
 };

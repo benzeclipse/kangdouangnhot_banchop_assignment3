@@ -20,16 +20,18 @@ var indicator = { readout : true, deadload : 3.0, OL : "Overload!",
 				 loadCels : [1, 2, 3, 4], scale : "Good"
 };
 
-// method procedure and method accessor
+// method procedure, method accessor, argument object
 getIndicator = function () {
-if ( indicator.deadload < 5)
+var key = { raw : 13294 };
+getInfo = function () {
+    console.log( indicator.loadCels,  indicator.scale, "Raw counts are " , key.raw);
+    }
+if ( indicator.deadload < 5) 
 	console.log("Scale Indicator checks okay, status " , indicator.readout);
-else {
-	console.log(indicator.OL);
-}
- getInfo = function () {
-    console.log(indicator.loadCels,  indicator.scale);
- }
+else{	
+	console.log("Scale Indicator is bad," , indicator.OL);
+    }
+    return key;
 };
      
 // Cell output conditions
@@ -105,14 +107,13 @@ var feedBack = getFeedBack();
 
 getCheckCells( "Checking cells ", " please wait...", feedBack );
 
-
 cellCondition( " 3 good cells", "cell that is reading " , mV , checking );
 
-readRead(  );
+readRead();
 
 newReadings( "testing..." );
 
-var mV = getReadings ( );
+var mV = getReadings();
 
 getInfo();
 

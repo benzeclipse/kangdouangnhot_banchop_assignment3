@@ -17,15 +17,21 @@ var check =  0,
  
  // properties objects  
 var indicator = { readout : true, deadload : 3.0, OL : "Overload!",
-				 loadCels : ["1", "2", "3", "4"]
+				 loadCels : [1, 2, 3, 4], scale : "Good"
 };
 
-// method procedure
+// method procedure and method accessor
 getIndicator = function () {
-console.log("Scale Indicator checks okay, status " , indicator.readout);
-} 
-
-       
+if ( indicator.deadload < 5)
+	console.log("Scale Indicator checks okay, status " , indicator.readout);
+else {
+	console.log(indicator.OL);
+}
+ getInfo = function () {
+    console.log(indicator.loadCels,  indicator.scale);
+ }
+};
+     
 // Cell output conditions
 var cellCondition = function ( good, bad, mV , checking ) {
 // boolean argument added
@@ -108,5 +114,5 @@ newReadings( "testing..." );
 
 var mV = getReadings ( );
 
-
+getInfo();
 

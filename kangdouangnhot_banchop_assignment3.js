@@ -19,21 +19,39 @@ var check =  0,
 
  
 // properties objects, return properties
-var indicator = { readout : true, deadload : 3.0, OL : "Overload!",
-				  loadCels : [1, 2, 3, 4], scale : "Good", raw : 12424
-}
-
+var indicator = { 
+				  readout : true, 
+                  deadload : 3.0, 
+                  OL : "Overload!",
+				  scale : "Good,",
+				  raw : 12424,
+				  loadCells : [1,2,3,4], 
+                  fix : function () {
+    			  console.log( "TESTING..." );
+            }
+    
+ };
+ 	var key = "raw";
+ 
+   indicator.fix();
+   indicator.fix = new function () {
+   			console.log("TESTING IS DONE");
+   };
+    
+    
+ 
 // method procedure, method accessor, argument object
   var getInfo = function () {
-    console.log( indicator.loadCels,  indicator.scale, indicator.deadload, "Raw counts are " , 
+    console.log( indicator.scale, "Dead load at ", indicator.deadload, "Raw counts are " , 
     indicator.raw);  
-  
+    		
+ 
 if ( indicator.deadload < 5) 
 	console.log("Scale Indicator checks okay, status " , indicator.readout);	
 else{	
 	console.log("Scale Indicator is bad," , indicator.OL);	
     }
-      
+       
     return indicator;
 };
   

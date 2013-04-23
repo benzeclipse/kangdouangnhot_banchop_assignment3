@@ -26,33 +26,43 @@ var indicator = {
 				  scale : "Good,",
 				  raw : 12424,
 				  loadCells : [1,2,3,4], 
-                  fix : function () {
-    			  console.log( "TESTING..." );
+				  
+            fix : function ( name ) {
+    			  // console.log( "TESTING..." );
+    			  
+    			  var fixes = ["cell", "readout", "base"];
+    			  
+    		 var fixing = function (item) {
+    			      
+    			      fixes.push(item);
+    			      
+    			  };
+    			  
+    			  return {
+    			   "name" : name,
+    			  // "fixing" : fixing,
+    			   "fixes" : fixes
+    			  }
             }
     
  };
- 	var key = "raw";
- 
+  
+    var names = indicator.fix( "Scales R Us, Inc" );
+    console.log(names);    
    indicator.fix();
-   indicator.fix = new function () {
-   			console.log("TESTING IS DONE");
-   };
-    
-    
  
 // method procedure, method accessor, argument object
   var getInfo = function () {
     console.log( indicator.scale, "Dead load at ", indicator.deadload, "Raw counts are " , 
     indicator.raw);  
-    		
- 
+    
 if ( indicator.deadload < 5) 
 	console.log("Scale Indicator checks okay, status " , indicator.readout);	
 else{	
 	console.log("Scale Indicator is bad," , indicator.OL);	
     }
        
-    return indicator;
+    return indicator
 };
   
   
@@ -78,14 +88,16 @@ var getReadings = function(){
 };
 
 
-
-
-
-
 // Nested Loop and changing new cell condition and readings
 var readRead = function ( nRead ) {	
     var newRead = [ "4.6 mv", "4.7 mv", "4.8 mv", "4.9 mv"],
     cellNum = [1, 2, 3, 4];
+    var cel = 1;
+    
+    while ( cel < 4 ) {
+          var c = cel++
+          console.log("counting...", c);
+    } 
    
 	for( i = 0; i < cellsRead.length; i++);
 	console.log("\nCells readings are " + cellsRead);
@@ -118,14 +130,13 @@ var system = {
 
 for ( var key in system.cal) {
     var Cal = system.cal[key];
-    console.log("Our main locations, " , Cal.name)
+    console.log("Our main locations, " , Cal.Location)
 };
 
 
 cellCondition( " 3 good cells", "cell that is reading " , mV , cells, checking );
 
 readRead(newReadings);
-
 
 getReadings();
 

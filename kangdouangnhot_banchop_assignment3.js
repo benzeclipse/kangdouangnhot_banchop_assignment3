@@ -4,6 +4,7 @@
 // Project 3
 
 // global variables
+var cells = true;
 var checking = true;
 var callTech = "1-800-555-5555";
 var check =  0,
@@ -13,76 +14,58 @@ var check =  0,
     cell4 = 5,
     cell = true,
     mV = 5 + 10.5,
-    cellsRead = ["4.7", " 4.8", " 15.5", " 4.9"]; 
+    cellsRead = ["4.7", " 4.8", " 15.5", " 4.9"] 
+    newReadings = ["4.5", "3.4", "3.0", "4.5"];
+
  
- // properties objects  
+// properties objects, return properties
 var indicator = { readout : true, deadload : 3.0, OL : "Overload!",
-				 loadCels : [1, 2, 3, 4], scale : "Good"
-};
+				  loadCels : [1, 2, 3, 4], scale : "Good", raw : 12424
+}
 
 // method procedure, method accessor, argument object
-getIndicator = function () {
-var key = { raw : 13294 };
-getInfo = function () {
-    console.log( indicator.loadCels,  indicator.scale, "Raw counts are " , key.raw);
-    }
+  var getInfo = function () {
+    console.log( indicator.loadCels,  indicator.scale, indicator.deadload, "Raw counts are " , 
+    indicator.raw);  
+  
 if ( indicator.deadload < 5) 
-	console.log("Scale Indicator checks okay, status " , indicator.readout);
+	console.log("Scale Indicator checks okay, status " , indicator.readout);	
 else{	
-	console.log("Scale Indicator is bad," , indicator.OL);
+	console.log("Scale Indicator is bad," , indicator.OL);	
     }
-    return key;
+      
+    return indicator;
 };
-     
-// Cell output conditions
-var cellCondition = function ( good, bad, mV , checking ) {
+  
+  
+  
+ 
+// Cell output conditions with boolean, number, and string
+var cellCondition = function ( good, bad, mV , cells, checking ) {
 // boolean argument added
-if( cell === true ){
+
+if ( cell === true ){
 	console.log("You have" + good + ", you have a " + bad  + mV + " milliVolts is " + checking );
+}else{
+	console.log("Bad");
 }
-else {
-	console.log("Checking");
-}
-return cell;
+return cell; //return boolean
 };
 
-var getReadings = function(m){
+// return math
+var getReadings = function(){
     var mv = "All cells check good";
     console.log( mv );
-    return mV;
+    return mv;
 };
 
 
-var getFeedBack = function( ){
-	var feed = ", Thank you for your time...";
-	if ( check === true){
-	console.log("Checking.. please wait...");
-	}
-	else{	
-	console.log("Hello");
-	}
-    return feed;
-};
 
-// checking number of cells conditions
-var getCheckCells = function ( checkCell , message, feed ) {
 
-while ( check <  4 ) {
-    check++;
-	console.log( checkCell + check + message );
-	var cells = [ " Cell 1 good ", " Cell 2 good ", "Cell 3 bad! ", " Cell 4 good " ];
-};
-//  checking when cells under 8 (milliVolts reading) anything over would be bad
-if ( cell1 < 8 && cell2 < 8 && cell3 < 8 && cell4 < 8 ) { 
-	console.log("Cells 1, 2, 3, and 4 are good...");
-	 }
-// if a single cells checks false, this block of code would then run and output a bad cell #	
-else { console.log(cells[2] , "Please call" , callTech , feed ) }
-       
-};
+
 
 // Nested Loop and changing new cell condition and readings
-var readRead = function () {	
+var readRead = function ( nRead ) {	
     var newRead = [ "4.6 mv", "4.7 mv", "4.8 mv", "4.9 mv"],
     cellNum = [1, 2, 3, 4];
    
@@ -91,29 +74,41 @@ var readRead = function () {
 	// local variable
 	for ( x = 0; x < i; x++ ) {
 		console.log ( "New readings are " + newRead[x] + " for cell " + cellNum[x] );
-	}
+		
+	}	
+	console.log("Adjusted readings are " , nRead); // passing in array argument
 		return newRead;	
 };
 
-var newReadings = function ( f ) {
-	console.log( "New Readings are as follow..." , f );
+// json
+var system = {
+		"cal" : {
+		    "1111": {
+			"name": "Scale R Us",
+			"Location" : "LA, CA"
+		},
+		     "2222": {
+			"name": "Scale America",
+			"Location" : "Fresno, CA"
+		},
+	     "3333": {
+			"name": "Scale Technology",
+			"Location" : "Stockton, CA"
+		}		
+	}	
 };
 
-// calling the cellCondition and checkCells function
+for ( var key in system.cal) {
+    var Cal = system.cal[key];
+    console.log("Our main locations, " , Cal.name)
+};
 
-getIndicator();
 
-var feedBack = getFeedBack();
+cellCondition( " 3 good cells", "cell that is reading " , mV , cells, checking );
 
-getCheckCells( "Checking cells ", " please wait...", feedBack );
+readRead(newReadings);
 
-cellCondition( " 3 good cells", "cell that is reading " , mV , checking );
 
-readRead();
-
-newReadings( "testing..." );
-
-var mV = getReadings();
+getReadings();
 
 getInfo();
-

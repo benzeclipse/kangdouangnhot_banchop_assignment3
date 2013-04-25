@@ -74,12 +74,23 @@ else{
 var cellCondition = function ( good, bad, mV , cells, checking ) {
 // boolean argument added
 
-if ( cell === true ){
+if ( cell === true ) {
 	console.log("You have" + good + ", you have a " + bad  + mV + " milliVolts is " + checking );
-}else{
+}
+
+else {
 	console.log("Bad");
 }
+
+if ( check === 0) {
+	console.log("Test is good");
+}
+
+else {
+	console.log("Test is bad");
+}
 return cell; //return boolean
+
 };
 
 // return math

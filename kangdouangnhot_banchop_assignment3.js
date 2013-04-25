@@ -35,40 +35,42 @@ var indicator = {
     		 var fixing = function (item) {
     			      
     			      fixes.push(item);
-    			      
-    			  };
-    			  
+    			
+    			}      		  
     			  return {
     			   "name" : name,
     			  // "fixing" : fixing,
-    			   "fixes" : fixes
+    			   "fixes" : fixes,
+    			   "address" : "5656 W. Thomas ave"
     			  }
+			var finish = new fixing(); // mutator
             }
-    
+                	
+    	
  };
-  
+ 
     var names = indicator.fix( "Scales R Us, Inc" );
-    console.log(names);    
-   indicator.fix();
+   		 names.address;
+   		 console.log(names);    
+  		 //indicator.fix();
  
 // method procedure, method accessor, argument object
   var getInfo = function () {
-    console.log( indicator.scale, "Dead load at ", indicator.deadload, "Raw counts are " , 
-    indicator.raw);  
+    	console.log( indicator.scale, "Dead load at ", indicator.deadload, "Raw counts are " , 
+   	    indicator.raw);  
     
 if ( indicator.deadload < 5) 
 	console.log("Scale Indicator checks okay, status " , indicator.readout);	
 else{	
 	console.log("Scale Indicator is bad," , indicator.OL);	
-    }
-       
+    }    
     return indicator
 };
   
   
   
  
-// Cell output conditions with boolean, number, and string
+// Cell output conditions and passing in boolean, number, and string, math
 var cellCondition = function ( good, bad, mV , cells, checking ) {
 // boolean argument added
 
@@ -86,7 +88,6 @@ var getReadings = function(){
     console.log( mv );
     return mv;
 };
-
 
 // Nested Loop and changing new cell condition and readings
 var readRead = function ( nRead ) {	
@@ -107,7 +108,7 @@ var readRead = function ( nRead ) {
 		
 	}	
 	console.log("Adjusted readings are " , nRead); // passing in array argument
-		return newRead;	
+		return cel;	
 };
 
 // json
@@ -133,6 +134,7 @@ for ( var key in system.cal) {
     console.log("Our main locations, " , Cal.Location)
 };
 
+// calling functions
 
 cellCondition( " 3 good cells", "cell that is reading " , mV , cells, checking );
 
